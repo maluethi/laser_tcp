@@ -1,0 +1,12 @@
+This is a little collection of code allowing to send data over a tcp socket. It has a server and a client routine which
+communicate with each other.
+
+ - test_server.py       used to start the server routine, it will consume 100 events from the socket and then die. The
+                        data fragments will be printed out.
+ - test_client.py       will send 10 data fragments to defined server with increasing trigger number starting at 100.
+ - tcp.py               actual implementation of the tcp sending and receiving. It is a very simple hard coded thing:
+                        The server expects a 60 bytes long string (the size of the laser data fragment) and if a message
+                        of this length is received it replys with "OK". This message then releases the client from the
+                        data sending and other things can be done.
+ - data.py              Just the container class for laser data, which has the packing (converting data to string) and
+                        unpacking (converting string to data) routines in it.
