@@ -1,12 +1,13 @@
 __author__ = 'matthias'
-import time
 
 from tcp import *
 from data import *
 
-data = LaserData()
+SERVER = "131.225.237.31"
+PORT = 33487
 
-client = TCP()
+data = LaserData()
+client = TCP(SERVER, PORT)
 
 for i in range(100,120):
     data.count_trigger = i
